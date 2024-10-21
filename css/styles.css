@@ -22,24 +22,6 @@ body {
     height: 100vh;
 }
 
-.progress-ring {
-    width: 11.2rem;
-    height: 11.2rem;
-    /* border: 1.2rem solid rgb(240, 240, 240); */
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(240, 240, 240);
-}
-
-.progress-ring-in {
-    width: 9rem;
-    height: 9rem;
-    background: white;
-    border-radius: 50%;
-}
-
 .controls {
     display: flex;
     flex-direction: column;
