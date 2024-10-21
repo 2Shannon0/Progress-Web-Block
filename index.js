@@ -42,6 +42,7 @@ const runAnimate = () => {
     if (animationMode) {
         animationMode = false;
         clearInterval(animationActions);
+        updateProgress(Number(progressValueInput.value));
         return;
     }
     animationMode = true;
