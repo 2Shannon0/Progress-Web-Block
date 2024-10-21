@@ -1,0 +1,25 @@
+.inputValue__inp {
+    border-radius: 18px;
+    width: 46px;
+    height: 28px;
+    border: 1px solid #333;
+    background-color: white;
+    padding: 3px 6px;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+    outline: none;
+}
+
+.inputValue__inp:focus,
+.inputValue__inp:hover,
+.inputValue__inp:active {
+    border: 1px solid #333;
+    background-color: white;
+    outline: none;
+}
+
+.inputValueLabel {
+    font-size: 18px;
+    padding: 8px;
+}
