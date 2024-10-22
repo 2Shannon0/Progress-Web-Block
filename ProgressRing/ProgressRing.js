@@ -50,7 +50,7 @@ export class ProgressRing {
             }
             progressStartValue += 0.5;
             this.element.style.background = `conic-gradient(rgb(60, 111, 232) ${
-                progressStartValue * 3.6 - 0.1
+                progressStartValue * 3.6 - 0.01
             }deg, rgb(240, 240, 240) 0deg)`;
             if (
                 progressStartValue + 100 * fullCirckleCount >=
@@ -62,7 +62,6 @@ export class ProgressRing {
     }
     updateDown(progressEndValue) {
         let progressStartValue = this.progress;
-        let fullCirckleCount = 0;
         if (!progressEndValue) {
             this.element.style.background = `rgb(240, 240, 240)`;
             return;
@@ -70,16 +69,12 @@ export class ProgressRing {
         this.currentInterval = setInterval(() => {
             if (progressStartValue > 100) {
                 progressStartValue = 0;
-                fullCirckleCount += 1;
             }
             progressStartValue -= 0.5;
             this.element.style.background = `conic-gradient(rgb(60, 111, 232) ${
                 progressStartValue * 3.6
             }deg, rgb(240, 240, 240) 0deg)`;
-            if (
-                progressStartValue + 100 * fullCirckleCount <=
-                progressEndValue
-            ) {
+            if (progressStartValue <= progressEndValue) {
                 clearInterval(this.currentInterval);
             }
         }, 2.5);
