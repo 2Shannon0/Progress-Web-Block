@@ -50,7 +50,7 @@ export class ProgressRing {
             }
             progressStartValue += 0.5;
             this.element.style.background = `conic-gradient(rgb(60, 111, 232) ${
-                progressStartValue * 3.6
+                progressStartValue * 3.6 - 0.1
             }deg, rgb(240, 240, 240) 0deg)`;
             if (
                 progressStartValue + 100 * fullCirckleCount >=
