@@ -5,9 +5,18 @@ export class ProgressRing {
         this.animationMode = false;
         this.hideMode = false;
         this.cahedProgress = 0;
+        this.currentInterval = null;
     }
 
     setProgress(value) {
+        console.log(value);
+        if (this.currentInterval) {
+            clearInterval(this.currentInterval);
+        }
+        // для разнообразия
+        if (value > 300) {
+            value = value % 100 === 0 && value !== 0 ? 100 : value % 100;
+        }
         value > this.progress ? this.updateUp(value) : this.updateDown(value);
         this.progress = value;
     }
@@ -32,7 +41,7 @@ export class ProgressRing {
             this.element.style.background = `rgb(240, 240, 240)`;
             return;
         }
-        const progressUp = setInterval(() => {
+        this.currentInterval = setInterval(() => {
             if (progressStartValue > 100) {
                 progressStartValue = 0;
                 fullCirckleCount += 1;
@@ -45,18 +54,18 @@ export class ProgressRing {
                 progressStartValue + 100 * fullCirckleCount >=
                 progressEndValue
             ) {
-                clearInterval(progressUp);
+                clearInterval(this.currentInterval);
             }
         }, 2.5);
     }
     updateDown(progressEndValue) {
         let progressStartValue = this.progress;
         let fullCirckleCount = 0;
-        if (!progressEndValue || progressEndValue == 0) {
+        if (!progressEndValue) {
             this.element.style.background = `rgb(240, 240, 240)`;
             return;
         }
-        const progressDown = setInterval(() => {
+        this.currentInterval = setInterval(() => {
             if (progressStartValue > 100) {
                 progressStartValue = 0;
                 fullCirckleCount += 1;
@@ -69,7 +78,7 @@ export class ProgressRing {
                 progressStartValue + 100 * fullCirckleCount <=
                 progressEndValue
             ) {
-                clearInterval(progressDown);
+                clearInterval(this.currentInterval);
             }
         }, 2.5);
     }

@@ -1,4 +1,4 @@
-.inputValue__inp {
+.inputValue {
     border-radius: 1.125rem;
     width: 2.875rem;
     height: 1.75rem;
@@ -21,4 +21,9 @@
 
 .inputValueLabel {
     padding: 0.5rem;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
