@@ -44,3 +44,4 @@ hideCheckbox.addEventListener("input", () => {
         progressRing.setHiddenMode(true);
     }
 });
+// progressRing.setProgress(210);

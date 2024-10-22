@@ -9,11 +9,13 @@ export class ProgressRing {
     }
 
     setProgress(value) {
-        console.log(value);
+        if (value === this.progress) {
+            return;
+        }
         if (this.currentInterval) {
             clearInterval(this.currentInterval);
         }
-        // для разнообразия
+        // пройдет несколько оборотов при небольшом превышении
         if (value > 300) {
             value = value % 100 === 0 && value !== 0 ? 100 : value % 100;
         }
@@ -86,9 +88,17 @@ export class ProgressRing {
     runAnimate() {
         this.cahedProgress = this.progress;
         this.animationMode = true;
+        // this.animationActions = setInterval(() => {
+        //     this.setProgress(Math.round(Math.random() * 100));
+        // }, 2000);
+        let progressStartValue = this.progress;
         this.animationActions = setInterval(() => {
-            this.setProgress(Math.round(Math.random() * 100));
-        }, 2000);
+            if (progressStartValue > 100) {
+                progressStartValue = 0;
+            }
+            progressStartValue += 1;
+            this.setProgress(progressStartValue);
+        }, 30);
     }
 
     stopAnimate() {
