@@ -14,7 +14,8 @@ progressValueInput.addEventListener("input", () => {
     let value = Number(progressValueInput.value);
     if (value > 100) {
         progressValueInput.value = 100;
-    } else if (value < 0 || isNaN(value)) {
+    }
+    if (value < 0 || isNaN(value)) {
         progressValueInput.value = 0;
     }
 
