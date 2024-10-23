@@ -83,9 +83,6 @@ export class ProgressRing {
     runAnimate() {
         this.cahedProgress = this.progress;
         this.animationMode = true;
-        // this.animationActions = setInterval(() => {
-        //     this.setProgress(Math.round(Math.random() * 100));
-        // }, 2000);
         let progressStartValue = this.progress;
         this.animationActions = setInterval(() => {
             if (progressStartValue > 100) {
