@@ -39,7 +39,7 @@ export class ProgressRing {
     updateUp(progressEndValue) {
         let progressStartValue = this.progress;
         let fullCirckleCount = 0;
-        if (!progressEndValue || progressEndValue == 0) {
+        if (!progressEndValue) {
             this.element.style.background = `rgb(240, 240, 240)`;
             return;
         }
@@ -62,7 +62,7 @@ export class ProgressRing {
     }
     updateDown(progressEndValue) {
         let progressStartValue = this.progress;
-        if (!progressEndValue) {
+        if (!progressEndValue && !(progressEndValue == 0)) {
             this.element.style.background = `rgb(240, 240, 240)`;
             return;
         }
